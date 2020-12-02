@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Link, Redirect} from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';
@@ -19,6 +19,7 @@ function App(){
          <li><Link to="/categoria?tipo=esportes">ESPORTES</Link></li>
          <li><Link to="/categoria?tipo=noticias">NOTÍCIAS</Link></li>
          <li><Link to="/categoria?tipo=viagens">VIAGENS</Link></li>
+         <li><Link to="/quem-somos">QUEM SOMOS</Link></li>
        </ul>
      </header><hr/>
 
@@ -31,6 +32,9 @@ function App(){
        </Route>
        <Route path='/categoria'>
          <Categoria/>
+       </Route>
+       <Route path='/quem-somos'>
+          <Redirect to='/sobre'/>
        </Route>
        <Route path='*'>
          <h4>Página não encontrada!</h4> 
