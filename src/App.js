@@ -4,7 +4,17 @@ import styled from 'styled-components';
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';
 import Categoria from './pages/Categoria';
+import Login from './pages/Login';
 
+const isLogged = true;
+
+const PrivateRoute = ({children,...rest})=>{
+  return (
+    <Route {...rest}>
+      {isLogged ? children : <Redirect to='/login'/>}
+    </Route>
+  );
+};
 
 
 function App(){
@@ -19,7 +29,6 @@ function App(){
          <li><Link to="/categoria?tipo=esportes">ESPORTES</Link></li>
          <li><Link to="/categoria?tipo=noticias">NOTÍCIAS</Link></li>
          <li><Link to="/categoria?tipo=viagens">VIAGENS</Link></li>
-         <li><Link to="/quem-somos">QUEM SOMOS</Link></li>
        </ul>
      </header><hr/>
 
@@ -27,14 +36,14 @@ function App(){
        <Route exact path='/'>
          <Home/>
        </Route>
-       <Route path='/sobre'>
-         <Sobre/>
+       <Route path='/login'>
+         <Login/>
        </Route>
+       <PrivateRoute path='/sobre'>
+         <Sobre/>
+       </PrivateRoute>
        <Route path='/categoria'>
          <Categoria/>
-       </Route>
-       <Route path='/quem-somos'>
-          <Redirect to='/sobre'/>
        </Route>
        <Route path='*'>
          <h4>Página não encontrada!</h4> 
