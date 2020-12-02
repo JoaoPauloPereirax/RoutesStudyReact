@@ -16,9 +16,9 @@ function App(){
        <ul>
          <li><Link to="/">HOME</Link></li>
          <li><Link to="/sobre">SOBRE</Link></li>
-         <li><Link to="/categoria/esportes">ESPORTES</Link></li>
-         <li><Link to="/categoria/noticias">NOTÍCIAS</Link></li>
-         <li><Link to="/categoria/viagens">VIAGENS</Link></li>
+         <li><Link to="/categoria?tipo=esportes">ESPORTES</Link></li>
+         <li><Link to="/categoria?tipo=noticias">NOTÍCIAS</Link></li>
+         <li><Link to="/categoria?tipo=viagens">VIAGENS</Link></li>
        </ul>
      </header><hr/>
 
@@ -29,7 +29,7 @@ function App(){
        <Route path='/sobre'>
          <Sobre/>
        </Route>
-       <Route path='/categoria/:cat'>
+       <Route path='/categoria'>
          <Categoria/>
        </Route>
      </Switch>
